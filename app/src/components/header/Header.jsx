@@ -33,7 +33,7 @@ export default function Header() {
             </div>
             <div className="h100   flex flexjustifycenter  navbarlinks ">
               <NavLink exact to="/">
-                Layer Visualization
+                Model Visualization
               </NavLink>
             </div>
             {/* <div className="h100   flex flexjustifycenter  navbarlinks ">

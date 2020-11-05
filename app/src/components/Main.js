@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { Route, HashRouter } from "react-router-dom";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
-import LayerVizEx from "./layervizex/LayerVizEx";
+import ModelViz from "./modelviz/ModelViz";
 import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory({
@@ -41,33 +41,21 @@ history.listen((location) => {
 });
 
 export default function Main() {
-  const modelViewDetails = require("../assets/semsearch/details.json");
-  const datasetViewDetails = require("../assets/semsearch/datasetdictionary.json");
-  const topSimilar = 10;
+  const modelDetails = require("../assets/modelviz/model_details.json");
 
   //   specify state values and setters
-  const [selectedDataset, setSelectedDataset] = useState(0);
   const [selectedModel, setSelectedModel] = useState(3);
-  const [selectedDistanceMetric, setSelectedDistanceMetric] = useState(0);
   const [selectedLayer, setSelectedLayer] = useState(7);
   const [showAdvanced, setShowAdvanced] = useState(true);
   const [similarDrawer, setSimilarDrawer] = useState(true);
   const [advancedDrawer, setAdvancedDrawer] = useState(true);
 
   useEffect(() => {
-    document.title = `ConvNet Playground | Semantic Search Explorer`;
+    document.title = `Neural Dreams | Model Visualization`;
     updateLh(window.location);
   }, []);
 
-  const datasetInfo = modelViewDetails["datasets"][selectedDataset];
-  const datasetContent = datasetViewDetails.classes[datasetInfo.name];
-
   const selections = {
-    dataset: modelViewDetails.datasets[selectedDataset],
-    model: modelViewDetails.models[selectedModel],
-    layer: modelViewDetails.models[selectedModel].layers[selectedLayer],
-    metric: modelViewDetails.metrics[selectedDistanceMetric],
-    topSimilar: topSimilar,
     basePath: process.env.PUBLIC_URL,
     show: {
       getter: {
@@ -81,26 +69,17 @@ export default function Main() {
         advanced: setShowAdvanced,
       },
     },
-    dictionary:
-      datasetViewDetails.dictionary[
-        modelViewDetails.datasets[selectedDataset].name
-      ],
     config: {
       getter: {
-        selectedDataset: selectedDataset,
         selectedModel: selectedModel,
-        selectedDistanceMetric: selectedDistanceMetric,
         selectedLayer: selectedLayer,
       },
       setter: {
-        selectedDataset: setSelectedDataset,
         selectedModel: setSelectedModel,
-        selectedDistanceMetric: setSelectedDistanceMetric,
         selectedLayer: setSelectedLayer,
       },
     },
-    classlist: datasetViewDetails.classlist,
-    classes: datasetViewDetails.classes,
+    models: modelDetails["models"],
   };
 
   return (
@@ -111,15 +90,7 @@ export default function Main() {
           <Route
             exact
             path="/"
-            render={(props) => (
-              <LayerVizEx
-                {...props}
-                selections={selections}
-                datasetInfo={datasetInfo}
-                datasetContent={datasetContent}
-                modelViewDetails={modelViewDetails}
-              />
-            )}
+            render={(props) => <ModelViz {...props} selections={selections} />}
           />
         </main>
       </div>

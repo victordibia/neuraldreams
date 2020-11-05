@@ -63,7 +63,9 @@ export default function ConfigView(props) {
   const selections = props.selections;
   const show = selections.show;
   const config = selections.config;
-  const layers = props.models[config.getter.selectedModel].layers;
+  const models = selections.models;
+  const model = models[config.getter.selectedModel];
+  const layers = models[config.getter.selectedModel].layers;
   const selectedLayer = layers[config.getter.selectedLayer];
 
   const lineHolder = useRef([]);
@@ -83,7 +85,6 @@ export default function ConfigView(props) {
     function scrollEndedHandler() {
       window.clearTimeout(isScrolling.current);
       isScrolling.current = setTimeout(function () {
-        // console.log("Scrolling has stopped.");
         removeLines();
         drawArcLines(
           selectedModelRef.current,
@@ -109,7 +110,6 @@ export default function ConfigView(props) {
 
     return function cleanup() {
       removeLines();
-      // console.log("removing listeners");
       window.removeEventListener("resize", scrollEndedHandler);
       modelBox.removeEventListener("scroll", scrollEndedHandler, false);
       layerBox.removeEventListener("scroll", scrollEndedHandler, false);
@@ -117,11 +117,9 @@ export default function ConfigView(props) {
   }, []);
 
   useEffect(() => {
-    // console.log("config change effect loaded .. drawing");
     selectedModelRef.current = config.getter.selectedModel;
     selectedLayerRef.current = config.getter.selectedLayer;
     laysersRef.current = layers;
-    // console.log("adding handlers");
     drawArcLines(
       config.getter.selectedModel,
       config.getter.selectedLayer,
@@ -139,17 +137,14 @@ export default function ConfigView(props) {
     show.getter.advancedDrawer,
   ]);
 
-  // console.log(props.metrics, config.getter.selectedDistanceMetric);
-
-  let modelImageList = props.models.map((mdata, index) => {
+  let modelImageList = models.map((mdata, index) => {
     let imagePath =
       selections.basePath +
       "/assets/models/" +
-      props.models[index].name +
+      models[index].name +
       "/" +
-      props.models[index].layers[props.models[index].layers.length - 1].name +
+      models[index].layers[models[index].layers.length - 1].name +
       "/0.jpg";
-    // console.log(props.models);
 
     return (
       <div
@@ -159,7 +154,7 @@ export default function ConfigView(props) {
       >
         <div className="datasettitles">
           {" "}
-          {abbreviateString(mdata.name.toUpperCase(), 11)}
+          {abbreviateString(mdata.name.toUpperCase(), 9)}
         </div>
         <div className="smalldesc pb5">
           {makeFriendly(mdata["modelparameters"])} params.{" "}
@@ -185,7 +180,7 @@ export default function ConfigView(props) {
     let imagePath =
       selections.basePath +
       "/assets/models/" +
-      selections.model.name +
+      model.name +
       "/" +
       layers[index].name +
       "/0.jpg";
@@ -236,18 +231,6 @@ export default function ConfigView(props) {
             </strong>{" "}
             <strong> Advanced Options</strong>
           </div>
-          <div className="iblock   ">
-            <div className="iblock mr5">
-              {" "}
-              <span className="boldtext uppercase">
-                {" "}
-                {selections.dataset.name}
-              </span>
-            </div>
-            <div className="iblock">
-              <div className="smalldesc"> DATASET </div>
-            </div>
-          </div>
         </div>
 
         {/* Configuration drawer */}
@@ -271,7 +254,7 @@ export default function ConfigView(props) {
               <div className="flex flexwrap pr10">
                 <div className="  mr10 ">
                   <div className=" iblock boldtext datasetdescription  p10 greyhighlight">
-                    {selections.model.name.toUpperCase()}
+                    {model.name.toUpperCase()}
                   </div>
                 </div>
                 <div className="flexfull ">
@@ -279,13 +262,12 @@ export default function ConfigView(props) {
                     {" "}
                     <strong>
                       {" "}
-                      {makeFriendly(selections.model.modelparameters)}{" "}
-                      Parameters{" "}
+                      {makeFriendly(model.modelparameters)} Parameters{" "}
                     </strong>{" "}
                   </div>
                   <div className="smalldesc pt3">
                     {" "}
-                    {selections.model.numlayers} layers{" "}
+                    {model.numlayers} layers{" "}
                   </div>
                 </div>
               </div>

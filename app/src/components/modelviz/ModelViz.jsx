@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import ConfigView from "./configview/ConfigView";
 
-export default function LayerVizEx(props) {
+export default function ModelViz(props) {
   useEffect(() => {
     document.title = `Neural Dreams | Layer / Neuron Visualization`;
   }, []);
@@ -48,13 +48,7 @@ export default function LayerVizEx(props) {
         </div>
       </div>
 
-      <ConfigView
-        models={props.modelViewDetails.models}
-        datasets={props.modelViewDetails.datasets}
-        metrics={props.modelViewDetails.metrics}
-        selections={props.selections}
-        showMetrics={false}
-      ></ConfigView>
+      <ConfigView selections={props.selections}></ConfigView>
     </>
   );
 }

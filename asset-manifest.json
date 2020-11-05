@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/neuraldreams/static/css/main.edf33120.chunk.css",
-    "main.js": "/neuraldreams/static/js/main.7b2b1f7f.chunk.js",
-    "main.js.map": "/neuraldreams/static/js/main.7b2b1f7f.chunk.js.map",
+    "main.js": "/neuraldreams/static/js/main.e20bce6f.chunk.js",
+    "main.js.map": "/neuraldreams/static/js/main.e20bce6f.chunk.js.map",
     "runtime-main.js": "/neuraldreams/static/js/runtime-main.3170c277.js",
     "runtime-main.js.map": "/neuraldreams/static/js/runtime-main.3170c277.js.map",
     "static/js/2.62fcd481.chunk.js": "/neuraldreams/static/js/2.62fcd481.chunk.js",
@@ -10,12 +10,12 @@
     "index.html": "/neuraldreams/index.html",
     "static/css/main.edf33120.chunk.css.map": "/neuraldreams/static/css/main.edf33120.chunk.css.map",
     "static/js/2.62fcd481.chunk.js.LICENSE.txt": "/neuraldreams/static/js/2.62fcd481.chunk.js.LICENSE.txt",
-    "static/js/main.7b2b1f7f.chunk.js.LICENSE.txt": "/neuraldreams/static/js/main.7b2b1f7f.chunk.js.LICENSE.txt"
+    "static/js/main.e20bce6f.chunk.js.LICENSE.txt": "/neuraldreams/static/js/main.e20bce6f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3170c277.js",
     "static/js/2.62fcd481.chunk.js",
     "static/css/main.edf33120.chunk.css",
-    "static/js/main.7b2b1f7f.chunk.js"
+    "static/js/main.e20bce6f.chunk.js"
   ]
 }

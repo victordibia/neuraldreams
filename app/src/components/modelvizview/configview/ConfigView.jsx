@@ -66,11 +66,12 @@ export default function ConfigView(props) {
   const models = selections.models;
   const model = models[config.getter.selectedModel];
   const layers = models[config.getter.selectedModel].layers;
-  const selectedLayer =
-    config.getter.selectedLayer >= layers.length
-      ? layers[0]
-      : layers[config.getter.selectedLayer];
 
+  const selectedLayerIndex =
+    config.getter.selectedLayer >= layers.length
+      ? 0
+      : config.getter.selectedLayer;
+  const selectedLayer = layers[selectedLayerIndex];
   const lineHolder = useRef([]);
   const isScrolling = useRef(null);
   const selectedModelRef = useRef(config.getter.selectedModel);
@@ -146,7 +147,7 @@ export default function ConfigView(props) {
     show.getter.advancedDrawer,
   ]);
 
-  let modelImageList = models.map((mdata, index) => {
+  const modelImageList = models.map((mdata, index) => {
     let imagePath =
       selections.basePath +
       "/assets/models/" +
@@ -185,7 +186,7 @@ export default function ConfigView(props) {
     );
   });
 
-  let layerImageList = layers.map((ldata, index) => {
+  const layerImageList = layers.map((ldata, index) => {
     let imagePath =
       selections.basePath +
       "/assets/models/" +

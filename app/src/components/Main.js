@@ -42,10 +42,12 @@ history.listen((location) => {
 
 export default function Main() {
   const modelDetails = require("../assets/modelviz/model_details.json");
+  const neuronDetails = require("../assets/modelviz/neurons.json");
 
   //   specify state values and setters
-  const [selectedModel, setSelectedModel] = useState(3);
-  const [selectedLayer, setSelectedLayer] = useState(7);
+  const [selectedModel, setSelectedModel] = useState(4);
+  const [selectedLayer, setSelectedLayer] = useState(48);
+  const [selectedNeuron, setSelectedNeuron] = useState(25);
   const [showAdvanced, setShowAdvanced] = useState(true);
   const [similarDrawer, setSimilarDrawer] = useState(true);
   const [advancedDrawer, setAdvancedDrawer] = useState(true);
@@ -73,13 +75,16 @@ export default function Main() {
       getter: {
         selectedModel: selectedModel,
         selectedLayer: selectedLayer,
+        selectedNeuron: selectedNeuron,
       },
       setter: {
         selectedModel: setSelectedModel,
         selectedLayer: setSelectedLayer,
+        selectedNeuron: setSelectedNeuron,
       },
     },
     models: modelDetails["models"],
+    neurons: neuronDetails,
   };
 
   return (

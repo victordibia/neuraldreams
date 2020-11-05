@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import ConfigView from "./configview/ConfigView";
+import NeuronView from "./neuronview/NeuronView";
 
 export default function ModelViz(props) {
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function ModelViz(props) {
       </div>
 
       <ConfigView selections={props.selections}></ConfigView>
+      <NeuronView selections={props.selections} />
     </>
   );
 }

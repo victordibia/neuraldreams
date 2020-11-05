@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.11da5a70.chunk.css",
-    "main.js": "/static/js/main.d95e681e.chunk.js",
-    "main.js.map": "/static/js/main.d95e681e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.38e4c213.js",
-    "runtime-main.js.map": "/static/js/runtime-main.38e4c213.js.map",
-    "static/js/2.b74a8986.chunk.js": "/static/js/2.b74a8986.chunk.js",
-    "static/js/2.b74a8986.chunk.js.map": "/static/js/2.b74a8986.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.11da5a70.chunk.css.map": "/static/css/main.11da5a70.chunk.css.map",
-    "static/js/2.b74a8986.chunk.js.LICENSE.txt": "/static/js/2.b74a8986.chunk.js.LICENSE.txt",
-    "static/js/main.d95e681e.chunk.js.LICENSE.txt": "/static/js/main.d95e681e.chunk.js.LICENSE.txt"
+    "main.css": "/neuraldreams/static/css/main.11da5a70.chunk.css",
+    "main.js": "/neuraldreams/static/js/main.649318d7.chunk.js",
+    "main.js.map": "/neuraldreams/static/js/main.649318d7.chunk.js.map",
+    "runtime-main.js": "/neuraldreams/static/js/runtime-main.3170c277.js",
+    "runtime-main.js.map": "/neuraldreams/static/js/runtime-main.3170c277.js.map",
+    "static/js/2.b74a8986.chunk.js": "/neuraldreams/static/js/2.b74a8986.chunk.js",
+    "static/js/2.b74a8986.chunk.js.map": "/neuraldreams/static/js/2.b74a8986.chunk.js.map",
+    "index.html": "/neuraldreams/index.html",
+    "static/css/main.11da5a70.chunk.css.map": "/neuraldreams/static/css/main.11da5a70.chunk.css.map",
+    "static/js/2.b74a8986.chunk.js.LICENSE.txt": "/neuraldreams/static/js/2.b74a8986.chunk.js.LICENSE.txt",
+    "static/js/main.649318d7.chunk.js.LICENSE.txt": "/neuraldreams/static/js/main.649318d7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.38e4c213.js",
+    "static/js/runtime-main.3170c277.js",
     "static/js/2.b74a8986.chunk.js",
     "static/css/main.11da5a70.chunk.css",
-    "static/js/main.d95e681e.chunk.js"
+    "static/js/main.649318d7.chunk.js"
   ]
 }

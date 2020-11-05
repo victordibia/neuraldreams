@@ -66,7 +66,10 @@ export default function ConfigView(props) {
   const models = selections.models;
   const model = models[config.getter.selectedModel];
   const layers = models[config.getter.selectedModel].layers;
-  const selectedLayer = layers[config.getter.selectedLayer];
+  const selectedLayer =
+    config.getter.selectedLayer >= layers.length
+      ? layers[0]
+      : layers[config.getter.selectedLayer];
 
   const lineHolder = useRef([]);
   const isScrolling = useRef(null);
@@ -80,6 +83,12 @@ export default function ConfigView(props) {
     });
     lineHolder.current = [];
   }
+
+  useEffect(() => {
+    if (config.getter.selectedLayer >= layers.length) {
+      config.setter.selectedLayer(0);
+    }
+  }, [config.getter.selectedLayer, config.setter, layers]);
 
   useEffect(() => {
     function scrollEndedHandler() {

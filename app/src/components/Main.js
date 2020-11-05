@@ -11,7 +11,7 @@ import React, { useEffect, useState } from "react";
 import { Route, HashRouter } from "react-router-dom";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
-import ModelViz from "./modelviz/ModelViz";
+import ModelViz from "./modelvizview/ModelViz";
 import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory({

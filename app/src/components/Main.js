@@ -50,7 +50,7 @@ export default function Main() {
   const [selectedModel, setSelectedModel] = useState(3);
   const [selectedDistanceMetric, setSelectedDistanceMetric] = useState(0);
   const [selectedLayer, setSelectedLayer] = useState(7);
-  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(true);
   const [similarDrawer, setSimilarDrawer] = useState(true);
   const [advancedDrawer, setAdvancedDrawer] = useState(true);
 

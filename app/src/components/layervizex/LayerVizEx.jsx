@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import ConfigView from "./configview/ConfigView";
 
 export default function LayerVizEx(props) {
   useEffect(() => {
@@ -9,18 +10,51 @@ export default function LayerVizEx(props) {
   return (
     <>
       <div className="flex pb10">
-        <div className="flexfull">
+        <div className="flex5 mr10">
           <div className="  mynotif positionrelative h100 lh10 p10 lightbluehightlight   ">
-            Upload an image to search for similar images in our dataset
-            (fashion200, conic200).
-            <div className="mediumdesc">
-              For the live search service below, an efficientnetB0 model (last
-              layer) is used for feature extraction. FAISS is used for
-              approximate nearest neighbour search.
+            <div className="boldtext pb5 advancedoptionsbox">
+              {" "}
+              Optimization Based Feature Visualization{" "}
             </div>
+            This demo allows you to explore visualizations of patterns learned
+            by channels (groups of neurons) in each layer of a Convolutional
+            Neural Network (pretrained on <strong> imagenet</strong>). To begin,{" "}
+            <strong> click </strong> on a model, and a layer to view
+            visualizations of selected channels in that layer.
+          </div>
+        </div>
+        <div className="flex5">
+          <div className="  mynotif positionrelative h100 lh10 p10 lightbluehightlight   ">
+            <div className="boldtext pb5 advancedoptionsbox">
+              {" "}
+              What do these images mean?{" "}
+            </div>
+            These images/visualizations represent an{" "}
+            <span className="italics">example</span> of what the given neurons
+            in the pretrained model have{" "}
+            <span className="italics"> learned to look for </span>. They are{" "}
+            <span className="italics"> generated </span> using an iterative{" "}
+            <a
+              href="https://distill.pub/2017/feature-visualization/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              optimization
+            </a>{" "}
+            process which synthesizes input that causes the neurons to have high
+            activation.
           </div>
         </div>
       </div>
+
+      <ConfigView
+        models={props.modelViewDetails.models}
+        datasets={props.modelViewDetails.datasets}
+        metrics={props.modelViewDetails.metrics}
+        selections={props.selections}
+        showMetrics={false}
+      ></ConfigView>
     </>
   );
 }

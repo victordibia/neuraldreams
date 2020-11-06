@@ -201,10 +201,6 @@ export function checkInView(
       partial &&
       ((eTop < cTop && eBottom > cTop) ||
         (eBottom > cBottom && eTop < cBottom));
-
-    //Return outcome
-    // console.log("cT:", cTop, "conHei", container.clientHeight, " offset", containerOffset, elementOffset, container.offsetTop)
-    // console.log(element.offsetTop, "eT:", eTop, "cT:", cTop, "eB:", eBottom, "cB:", cBottom, isTotal || isPartial)
     return isTotal || isPartial;
   } else {
     return false;

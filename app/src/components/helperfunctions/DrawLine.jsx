@@ -26,9 +26,10 @@ export function drawLines(lineHolder, lineParams) {
       endPlugSize: param.endPlugSize,
       //   startPlugSize: param.startPlugSize,
     });
-    document.querySelector(".leader-line").style.zIndex = -100;
+
     animOptions.duration = 800;
     line.show("draw", animOptions);
     lineHolder.push({ line: line, index: i });
   }
+  // document.querySelector(".leader-line").style.zIndex = -100;
 }

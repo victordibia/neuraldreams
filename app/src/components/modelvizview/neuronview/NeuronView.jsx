@@ -16,7 +16,6 @@ export default function NeuronView(props) {
 
   const neurons =
     selections.neurons[model.name][layers[selectedLayerIndex].name];
-  console.log(neurons);
 
   useEffect(() => {}, []);
 
@@ -57,6 +56,7 @@ export default function NeuronView(props) {
   });
 
   const mainImagePath =
+    selections.basePath +
     "/assets/models/" +
     model.name +
     "/" +
@@ -64,7 +64,6 @@ export default function NeuronView(props) {
     "/" +
     (neurons[config.getter.selectedNeuron] || "0") +
     ".jpg";
-  console.log(mainImagePath);
 
   const mainImage = (
     <div className="mr10 mb5  floatleft iblock">

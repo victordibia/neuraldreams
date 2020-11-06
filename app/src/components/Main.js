@@ -46,8 +46,8 @@ export default function Main() {
 
   //   specify state values and setters
   const [selectedModel, setSelectedModel] = useState(4);
-  const [selectedLayer, setSelectedLayer] = useState(48);
-  const [selectedNeuron, setSelectedNeuron] = useState(25);
+  const [selectedLayer, setSelectedLayer] = useState(71);
+  const [selectedNeuron, setSelectedNeuron] = useState(5);
   const [showAdvanced, setShowAdvanced] = useState(true);
   const [similarDrawer, setSimilarDrawer] = useState(true);
   const [advancedDrawer, setAdvancedDrawer] = useState(true);

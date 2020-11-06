@@ -44,6 +44,7 @@ function drawArcLines(model, layer, layers, lineHolder) {
       -80,
       elementOffset
     );
+
     if (layerVisible && modelVisible) {
       const isPrima = String(layer) === String(i);
       lineParams.push({
@@ -112,8 +113,10 @@ export default function ConfigView(props) {
     modelBox.addEventListener("scroll", scrollEndedHandler, false);
     layerBox.addEventListener("scroll", scrollEndedHandler, false);
 
+    const selectedLayerBox = getElement("layerimg" + selectedLayerIndex);
+
     layerBox.scrollTo({
-      top: 100,
+      top: selectedLayerBox.offsetTop - layerBox.offsetTop - 30,
       left: 0,
       behavior: "smooth",
     });

@@ -127,7 +127,7 @@ export default function ConfigView(props) {
       modelBox.removeEventListener("scroll", scrollEndedHandler, false);
       layerBox.removeEventListener("scroll", scrollEndedHandler, false);
     };
-  }, []);
+  }, [selectedLayerIndex]);
 
   useEffect(() => {
     selectedModelRef.current = config.getter.selectedModel;

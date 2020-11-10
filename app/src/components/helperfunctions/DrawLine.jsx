@@ -1,4 +1,4 @@
-export const LeaderLine = window.LeaderLine;
+const LeaderLine = window.LeaderLine;
 export const animOptions = { duration: 800, timing: "ease" };
 export const greyColor = "rgba(189, 195, 199, 0.5)";
 export const blueColor = "rgba(0,98,255, 1)";
@@ -9,6 +9,8 @@ export function removeLines(lineHolder) {
   });
   lineHolder = [];
 }
+
+// console.log(LeaderLine);
 
 export function drawLines(lineHolder, lineParams) {
   // removeLines(lineHolder);
